@@ -16,6 +16,6 @@ services:
     depends_on:
       - meshobserv
     ports:
-      - "8080:80"
+      - "8889:80"
     volumes:
       - ./website:/usr/share/nginx/html:ro
