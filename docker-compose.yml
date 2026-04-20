@@ -1,0 +1,10 @@
+services:
+  meshobserv:
+    build:
+      context: .
+      dockerfile: Dockerfile.meshobserv
+    container_name: meshobserv
+    restart: unless-stopped
+    command: ["-f", "/data/meshmap.net/website/nodes.json"]
+    volumes:
+      - /data:/data
