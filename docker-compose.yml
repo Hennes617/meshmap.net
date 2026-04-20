@@ -1,0 +1,21 @@
+services:
+  meshobserv:
+    build:
+      context: .
+      dockerfile: Dockerfile.meshobserv
+    container_name: meshobserv
+    restart: unless-stopped
+    command: ["-f", "/website/nodes.json"]
+    volumes:
+      - ./website:/website
+
+  web:
+    image: nginx:alpine
+    container_name: meshmap-web
+    restart: unless-stopped
+    depends_on:
+      - meshobserv
+    ports:
+      - "8080:80"
+    volumes:
+      - ./website:/usr/share/nginx/html:ro

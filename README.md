@@ -8,6 +8,23 @@ A nearly live map of [Meshtastic](https://meshtastic.org/) nodes seen by the off
 - Nodes are removed from the map if their position is not updated after 8 hours
 - Search for nodes by name or ID
 
+
+## Running with Docker Compose
+
+Build and start both services (the observer + web UI):
+
+```bash
+docker compose up --build -d
+```
+
+Then open `http://localhost:8080`. The `meshobserv` service writes `nodes.json` into `./website`, and the `web` service serves that folder via nginx.
+
+To stop:
+
+```bash
+docker compose down
+```
+
 ## FAQs
 
 ### How do I get my node on the map?
