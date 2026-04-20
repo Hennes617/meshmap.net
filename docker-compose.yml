@@ -19,7 +19,3 @@ services:
       - "8080:80"
     volumes:
       - ./website:/usr/share/nginx/html:ro
-    command: ["-f", "/data/meshmap.net/website/nodes.json"]
-    volumes:
-      - /data:/data
-
